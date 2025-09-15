@@ -80,6 +80,7 @@ class _FavoritePageState extends State<FavoritePage> {
                             icon: Icon(
                               Icons.favorite,
                               color: Theme.of(context).primaryColor,
+                              size: size.height * 0.031,
                             ),
                           ),
                         ],

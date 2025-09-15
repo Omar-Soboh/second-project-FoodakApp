@@ -54,6 +54,7 @@ class _ProductItemState extends State<ProductItem> {
                             ? Icons.favorite_border
                             : Icons.favorite,
                         color: Theme.of(context).primaryColor,
+                        size: size.height * 0.031,
                       ),
                     ),
                   ),

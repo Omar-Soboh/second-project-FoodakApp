@@ -35,12 +35,13 @@ class AccountPage extends StatelessWidget {
     required trailing,
     String? subtitle,
   }) {
+    final size = MediaQuery.of(context).size;
     return ListTile(
       onTap: (){},
       leading: Icon(
         leading,
         color: Theme.of(context).primaryColor,
-        size: 26,
+        size: size.height * 0.033,
         ),
       title: Text(
         title,
@@ -49,7 +50,7 @@ class AccountPage extends StatelessWidget {
       trailing: Icon(
         trailing,
         color: Theme.of(context).primaryColor,
-        size: 26,
+        size: size.height * 0.033,
         ),
     );
   }

@@ -12,13 +12,15 @@ class ProductItem extends StatefulWidget {
 class _ProductItemState extends State<ProductItem> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16.0),
+        borderRadius: BorderRadius.circular(size.height * 0.02),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(size.height * 0.01),
         child: Column(
           children: [
             Stack(
@@ -26,16 +28,16 @@ class _ProductItemState extends State<ProductItem> {
               children: [
                 Image.asset(
                   products[widget.index].imageLink,
-                  height: 90,
+                  height: size.height * 0.12,
                   fit: BoxFit.contain,
                 ),
                 Align(
                   alignment: Alignment.topRight,
                   child: Container(
-                    height: 30,
-                    width: 30,
+                    height: size.height * 0.036,
+                    width: size.height * 0.036,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16.0),
+                      borderRadius: BorderRadius.circular(size.height * 0.02),
                       color: Colors.black12,
                     ),
                     child: InkWell(

@@ -56,10 +56,12 @@ class AccountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final size = MediaQuery.of(context).size;
+
     return Column(
       children: [
         Container(
-          height: 270,
+          height: size.height * 0.34,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
@@ -68,20 +70,20 @@ class AccountPage extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 16.0),
+        SizedBox(height: size.height * 0.03),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             orderVoucherCount(context, title: "Order", count: 50),
-            orderVoucherCount(context, title: "Voucher", count: 50),
+            orderVoucherCount(context, title: "Voucher", count: 10),
           ],
         ),
-        SizedBox(height: 16.0),
+        SizedBox(height: size.height * 0.03),
         Divider(
            thickness: 0.8,
            color: Colors.black12,
-           indent: 10,
-           endIndent: 10,
+           indent: size.height * 0.01,
+           endIndent: size.height * 0.01,
         ),
         listTileOrderVoucher(
           context,
@@ -92,8 +94,8 @@ class AccountPage extends StatelessWidget {
         Divider(
            thickness: 0.8,
            color: Colors.black12,
-           indent: 10,
-           endIndent: 10,
+           indent: size.height * 0.01,
+           endIndent: size.height * 0.01,
         ),
         listTileOrderVoucher(
           context,
@@ -104,8 +106,8 @@ class AccountPage extends StatelessWidget {
         Divider(
            thickness: 0.8,
            color: Colors.black12,
-           indent: 10,
-           endIndent: 10,
+           indent: size.height * 0.01,
+           endIndent: size.height * 0.01,
         ),
       ],
     );

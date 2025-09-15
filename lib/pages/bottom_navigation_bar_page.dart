@@ -24,6 +24,7 @@ List<Widget> navigationPages = [
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text("Foodak"),
@@ -36,7 +37,7 @@ List<Widget> navigationPages = [
         child: Center(child: Text("i am into drawer")),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(size.height * 0.022),
         child: navigationPages[currentIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(

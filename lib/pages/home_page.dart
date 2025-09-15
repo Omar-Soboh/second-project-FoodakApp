@@ -12,14 +12,16 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Image.asset(
             "assets/images/foodaklogo.png",
-            height: 250,
-            width: 350,
+            height: size.height * 0.28,
+            width: size.height * 0.45,
             fit: BoxFit.cover,
           ),
           GridView.builder(
@@ -27,8 +29,8 @@ class _HomePageState extends State<HomePage> {
             physics: NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
+              mainAxisSpacing: size.height * 0.015,
+              crossAxisSpacing: size.height * 0.015,
             ),
             itemCount: products.length,
             itemBuilder: (context, index) => ProductItem(index: index),

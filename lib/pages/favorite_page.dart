@@ -14,6 +14,8 @@ class _FavoritePageState extends State<FavoritePage> {
       .toList();
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return (productsFavorite.isNotEmpty)
         ? Column(
             children: [
@@ -22,19 +24,19 @@ class _FavoritePageState extends State<FavoritePage> {
                   itemCount: productsFavorite.length,
                   itemBuilder: (context, index) => Card(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.0),
+                      borderRadius: BorderRadius.circular(size.height * 0.022),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(size.height * 0.01),
                       child: Row(
                         children: [
                           Image.asset(
                             productsFavorite[index].imageLink,
-                            height: 80,
-                            width: 100,
+                            height: size.height * 0.1,
+                            width: size.height * 0.14,
                             fit: BoxFit.contain,
                           ),
-                          SizedBox(width: 10),
+                          SizedBox(width: size.height * 0.01),
                           Expanded(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -93,7 +95,7 @@ class _FavoritePageState extends State<FavoritePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset("assets/images/bookmark.png", height: 400),
+                Image.asset("assets/images/bookmark.png", height: size.height * 0.5),
                 //  SizedBox(height: 10,),
                 Text(
                   "No Item Selected",

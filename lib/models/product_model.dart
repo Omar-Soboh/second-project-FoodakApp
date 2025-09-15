@@ -30,7 +30,7 @@ List<ProductModel> products = [
   ProductModel(imageLink: "assets/images/salad.jpg", title: "salad", price: 10),
   ProductModel(imageLink: "assets/images/potaotes.jpg", title: "potaotes", price: 10),
   ProductModel(imageLink: "assets/images/pizza.jpg", title: "pizza", price: 10),
-  ProductModel(imageLink: "assets/images/pizza.jpg", title: "pizza", price: 10),
+  ProductModel(imageLink: "assets/images/chicken.jpg", title: "pizza", price: 10),
   ProductModel(imageLink: "assets/images/meat.jpg", title: "meat", price: 10),
   ProductModel(imageLink: "assets/images/fish.jpg", title: "fish", price: 10),
   ProductModel(imageLink: "assets/images/cake.jpg", title: "cake", price: 10),

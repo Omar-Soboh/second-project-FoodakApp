@@ -13,6 +13,7 @@ class _ProductItemState extends State<ProductItem> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final textScaler = MediaQuery.of(context).textScaler;
 
     return Container(
       decoration: BoxDecoration(
@@ -66,15 +67,15 @@ class _ProductItemState extends State<ProductItem> {
               style: Theme.of(
                 context,
               ).textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w500,
-              fontSize: 22,),
-            ),
-            Text(
+              fontSize: textScaler.scale(22)),
+              ),        
+             Text(
               "\$${products[widget.index].price}",
               style: Theme.of(
                 context,
               ).textTheme.headlineSmall!.copyWith(
                 fontWeight: FontWeight.w500,
-                fontSize: 18,
+                fontSize: textScaler.scale(18),
                 color: Theme.of(context).primaryColor,
                 ),
             ),

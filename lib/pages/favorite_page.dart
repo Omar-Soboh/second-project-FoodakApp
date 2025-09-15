@@ -15,6 +15,7 @@ class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final textScaler = MediaQuery.of(context).textScaler;
 
     return (productsFavorite.isNotEmpty)
         ? Column(
@@ -49,7 +50,7 @@ class _FavoritePageState extends State<FavoritePage> {
                                       .headlineSmall!
                                       .copyWith(
                                         fontWeight: FontWeight.w500,
-                                        fontSize: 22,
+                                        fontSize: textScaler.scale(22),
                                       ),
                                 ),
                                 Text(
@@ -59,7 +60,7 @@ class _FavoritePageState extends State<FavoritePage> {
                                       .headlineSmall!
                                       .copyWith(
                                         fontWeight: FontWeight.w500,
-                                        fontSize: 18,
+                                        fontSize: textScaler.scale(18),
                                         color: Theme.of(context).primaryColor,
                                       ),
                                 ),

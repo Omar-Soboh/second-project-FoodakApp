@@ -95,7 +95,10 @@ class _FavoritePageState extends State<FavoritePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset("assets/images/bookmark.png", height: size.height * 0.5),
+                Image.asset(
+                  "assets/images/bookmark.png",
+                  height: size.height * 0.5,
+                ),
                 //  SizedBox(height: 10,),
                 Text(
                   "No Item Selected",

@@ -62,7 +62,7 @@ class AccountPage extends StatelessWidget {
       children: [
         Container(
           height: size.height * 0.34,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
               fit: BoxFit.cover,

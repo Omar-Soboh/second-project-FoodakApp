@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:foodak/pages/account_page.dart';
 import 'package:foodak/pages/favorite_page.dart';
@@ -9,53 +7,44 @@ class BottomNavigationBarPage extends StatefulWidget {
   const BottomNavigationBarPage({super.key});
 
   @override
-  State<BottomNavigationBarPage> createState() => _BottomNavigationBarPageState();
+  State<BottomNavigationBarPage> createState() =>
+      _BottomNavigationBarPageState();
 }
 
 class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
+  int currentIndex = 0;
 
-int currentIndex = 0;
-
-List<Widget> navigationPages = [
-  HomePage(),
-  FavoritePage(),
-  AccountPage(),
-];
+  List<Widget> navigationPages = [HomePage(), FavoritePage(), AccountPage()];
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Foodak"),
+        title: const Text("Foodak"),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.grey[200],
         foregroundColor: Colors.black,
       ),
-      drawer: Drawer(
-        child: Center(child: Text("i am into drawer")),
-      ),
+      drawer: const Drawer(child: Center(child: Text("i am into drawer"))),
       body: Padding(
         padding: EdgeInsets.all(size.height * 0.022),
         child: navigationPages[currentIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items:[
-           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-           ),
-           BottomNavigationBarItem(
+        items: [
+          const BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          const BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
             label: "Favorite",
-           ),
-           BottomNavigationBarItem(
+          ),
+          const BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: "Account",
-           ),
+          ),
         ],
-        onTap:(index){
+        onTap: (index) {
           setState(() {
             currentIndex = index;
           });
@@ -63,8 +52,8 @@ List<Widget> navigationPages = [
         currentIndex: currentIndex,
         selectedItemColor: Theme.of(context).primaryColor,
         backgroundColor: Colors.grey[200],
-        ),
-        backgroundColor: Colors.grey[200],
+      ),
+      backgroundColor: Colors.grey[200],
     );
   }
 }

@@ -13,6 +13,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final bool isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
 
     return SingleChildScrollView(
       child: Column(
@@ -20,17 +21,17 @@ class _HomePageState extends State<HomePage> {
         children: [
           Image.asset(
             "assets/images/foodaklogo.png",
-            height: size.height * 0.28,
-            width: size.height * 0.45,
+            height: (isLandscape)?size.height * 0.6:size.height * 0.45,
+            width: (isLandscape)?size.width * 0.5:size.width * 0.8,
             fit: BoxFit.cover,
           ),
           GridView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: size.height * 0.015,
-              crossAxisSpacing: size.height * 0.015,
+              crossAxisCount: (isLandscape)?4:2,
+              mainAxisSpacing: (isLandscape)?size.height * 0.05:size.height * 0.02,
+              crossAxisSpacing: (isLandscape)?size.height * 0.05:size.height * 0.02,
             ),
             itemCount: products.length,
             itemBuilder: (context, index) => ProductItem(index: index),

@@ -29,7 +29,8 @@ class _FavoritePageState extends State<FavoritePage> {
                     ),
                     child: Padding(
                       padding: EdgeInsets.all(size.height * 0.01),
-                      child: Row(
+                      child: LayoutBuilder(
+                        builder: (context, constraints) => Row(
                         children: [
                           Image.asset(
                             productsFavorite[index].imageLink,
@@ -85,7 +86,8 @@ class _FavoritePageState extends State<FavoritePage> {
                             ),
                           ),
                         ],
-                      ),
+                      )
+                         ),
                     ),
                   ),
                 ),

@@ -19,6 +19,8 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final bool isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Foodak"),
@@ -29,7 +31,7 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
       ),
       drawer: const Drawer(child: Center(child: Text("i am into drawer"))),
       body: Padding(
-        padding: EdgeInsets.all(size.height * 0.022),
+        padding: EdgeInsets.all((isLandscape)?size.height * 0.06:size.height * 0.022),
         child: navigationPages[currentIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(

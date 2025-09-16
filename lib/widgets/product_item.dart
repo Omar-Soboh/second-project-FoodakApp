@@ -22,23 +22,24 @@ class _ProductItemState extends State<ProductItem> {
       ),
       child: Padding(
         padding: EdgeInsets.all(size.height * 0.01),
-        child: Column(
+        child: LayoutBuilder(
+          builder: (context, constraints) => Column(
           children: [
             Stack(
               alignment: Alignment.topCenter,
               children: [
                 Image.asset(
                   products[widget.index].imageLink,
-                  height: size.height * 0.12,
+                  height: constraints.maxHeight * 0.55,
                   fit: BoxFit.contain,
                 ),
                 Align(
                   alignment: Alignment.topRight,
                   child: Container(
-                    height: size.height * 0.036,
-                    width: size.height * 0.036,
+                    height: constraints.maxHeight * 0.19,
+                    width: constraints.maxWidth * 0.19,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(size.height * 0.02),
+                      borderRadius: BorderRadius.circular(constraints.maxHeight * 0.1),
                       color: Colors.black12,
                     ),
                     child: InkWell(
@@ -55,31 +56,44 @@ class _ProductItemState extends State<ProductItem> {
                             ? Icons.favorite_border
                             : Icons.favorite,
                         color: Theme.of(context).primaryColor,
-                        size: size.height * 0.031,
+                        size: constraints.maxHeight * 0.14,
                       ),
                     ),
                   ),
                 ),
               ],
             ),
-            Text(
-              products[widget.index].title,
-              style: Theme.of(
-                context,
-              ).textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w500,
-              fontSize: textScaler.scale(22)),
-              ),        
-             Text(
-              "\$${products[widget.index].price}",
-              style: Theme.of(
-                context,
-              ).textTheme.headlineSmall!.copyWith(
-                fontWeight: FontWeight.w500,
-                fontSize: textScaler.scale(18),
-                color: Theme.of(context).primaryColor,
-                ),
-            ),
+            SizedBox(height: constraints.maxHeight * 0.05,),
+            SizedBox(
+              height: constraints.maxHeight * 0.21,
+              child: FittedBox(
+                child: Text(
+                  products[widget.index].title,
+                  style: Theme.of(
+                    context,
+                  ).textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w500,
+                  fontSize: textScaler.scale(22)),
+                  ),
+              ),
+            ),  
+              SizedBox(height: constraints.maxHeight * 0.02,),      
+             SizedBox(
+              height: constraints.maxHeight * 0.17,
+               child: FittedBox(
+                 child: Text(
+                  "\$${products[widget.index].price}",
+                  style: Theme.of(
+                    context,
+                  ).textTheme.headlineSmall!.copyWith(
+                    fontWeight: FontWeight.w500,
+                    fontSize: textScaler.scale(18),
+                    color: Theme.of(context).primaryColor,
+                    ),
+                             ),
+               ),
+             ),
           ],
+        ),
         ),
       ),
     );

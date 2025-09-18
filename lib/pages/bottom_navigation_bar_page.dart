@@ -13,9 +13,27 @@ class BottomNavigationBarPage extends StatefulWidget {
       _BottomNavigationBarPageState();
 }
 
-class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
-  int currentIndex = 0;
+class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> with WidgetsBindingObserver{
 
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    debugPrint("$state");
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  int currentIndex = 0;
   List<Widget> navigationPages = [HomePage(), FavoritePage(), AccountPage()];
 
   @override

@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:foodak/models/product_model.dart';
+import 'package:foodak/widgets/product_favorite_button.dart';
 
-class ProductItem extends StatefulWidget {
+class ProductItem extends StatelessWidget {
   final int index;
   const ProductItem({super.key, required this.index});
 
-  @override
-  State<ProductItem> createState() => _ProductItemState();
-}
-
-class _ProductItemState extends State<ProductItem> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -29,37 +25,13 @@ class _ProductItemState extends State<ProductItem> {
               alignment: Alignment.topCenter,
               children: [
                 Image.asset(
-                  products[widget.index].imageLink,
+                  products[index].imageLink,
                   height: constraints.maxHeight * 0.55,
                   fit: BoxFit.contain,
                 ),
                 Align(
                   alignment: Alignment.topRight,
-                  child: Container(
-                    height: constraints.maxHeight * 0.19,
-                    width: constraints.maxWidth * 0.19,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(constraints.maxHeight * 0.1),
-                      color: Colors.black12,
-                    ),
-                    child: InkWell(
-                      onTap: () {
-                        setState(() {
-                          products[widget.index] = products[widget.index]
-                              .copyWith(
-                                isFavorite: !products[widget.index].isFavorite,
-                              );
-                        });
-                      },
-                      child: Icon(
-                        (products[widget.index].isFavorite == false)
-                            ? Icons.favorite_border
-                            : Icons.favorite,
-                        color: Theme.of(context).primaryColor,
-                        size: constraints.maxHeight * 0.14,
-                      ),
-                    ),
-                  ),
+                  child: ProductFavoriteButton(index: index, constraints: constraints,),
                 ),
               ],
             ),
@@ -68,7 +40,7 @@ class _ProductItemState extends State<ProductItem> {
               height: constraints.maxHeight * 0.21,
               child: FittedBox(
                 child: Text(
-                  products[widget.index].title,
+                  products[index].title,
                   style: Theme.of(
                     context,
                   ).textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w500,
@@ -81,7 +53,7 @@ class _ProductItemState extends State<ProductItem> {
               height: constraints.maxHeight * 0.17,
                child: FittedBox(
                  child: Text(
-                  "\$${products[widget.index].price}",
+                  "\$${products[index].price}",
                   style: Theme.of(
                     context,
                   ).textTheme.headlineSmall!.copyWith(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodak/models/product_model.dart';
+import 'package:foodak/pages/product_details_page.dart';
 import 'package:foodak/widgets/product_item.dart';
 
 class HomePage extends StatefulWidget {
@@ -39,7 +40,15 @@ class _HomePageState extends State<HomePage> {
                   : size.height * 0.02,
             ),
             itemCount: products.length,
-            itemBuilder: (context, index) => ProductItem(index: index),
+            itemBuilder: (context, index) => InkWell(
+              onTap: (){
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context){
+                        return ProductDetailsPage();
+                  })
+                );
+              },
+              child: ProductItem(index: index)),
           ),
         ],
       ),
